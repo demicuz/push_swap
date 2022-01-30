@@ -1,0 +1,9 @@
+/lib
+/obj
+/.cache
+*.o
+*.a
+compile_commands.json
+*.sublime-workspace
+save.sh
+push_swap

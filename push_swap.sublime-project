@@ -1,0 +1,16 @@
+{
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
+
+	"build_systems":
+	[
+		{
+			"name": "Run with 1 2 3 4",
+			"shell_cmd": "make push_swap && ./push_swap 1 2 3 4"
+		}
+	]
+}
