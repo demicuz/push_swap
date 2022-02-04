@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <push_swap.h>
 
 static int	get_window(int n)
@@ -73,9 +74,10 @@ void	rotate_many(t_cstack *cs, int offset, char *stack_name)
 		{
 			cs->stack = cs->stack->next;
 			i++;
-			ft_putstr("r");
-			ft_putstr(stack_name);
-			ft_putstr("\n");
+			if (*stack_name == 'b')
+				ft_putstr("rb\n");
+			else
+				ft_putstr("ra\n");
 		}
 	}
 	else
@@ -84,9 +86,10 @@ void	rotate_many(t_cstack *cs, int offset, char *stack_name)
 		{
 			cs->stack = cs->stack->prev;
 			i++;
-			ft_putstr("rr");
-			ft_putstr(stack_name);
-			ft_putstr("\n");
+			if (*stack_name == 'b')
+				ft_putstr("rrb\n");
+			else
+				ft_putstr("rra\n");
 		}
 	}
 }
