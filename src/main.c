@@ -25,7 +25,6 @@ void	sort_and_print_2(t_state *s)
 	}
 }
 
-// Need to add total_size bc -1 % 3 is -1, not 2
 void	sort_and_print_3(t_state *s)
 {
 	int	first;

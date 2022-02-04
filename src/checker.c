@@ -72,7 +72,7 @@ void	check_ops(t_state *s)
 	{
 		if (!do_op(s, line))
 		{
-			write(1, "Error\n", 6);
+			ft_putstr("Error\n");
 			free(line);
 			return ;
 		}
@@ -80,9 +80,9 @@ void	check_ops(t_state *s)
 		line = get_next_line(STDIN_FILENO);
 	}
 	if (is_sorted_cstack(s->a) && s->b->size == 0)
-		write(1, "OK\n", 3);
+		ft_putstr("OK\n");
 	else
-		write(1, "KO\n", 3);
+		ft_putstr("KO\n");
 }
 
 int	main(int argc, const char *argv[])
@@ -94,7 +94,7 @@ int	main(int argc, const char *argv[])
 	init_state(&s, argc);
 	if (!check_and_fill(s.arr, argc - 1, &argv[1]))
 	{
-		write(1, "Error\n", 6);
+		ft_putstr("Error\n");
 		exit(EXIT_FAILURE);
 	}
 	fill_stack(s.a, s.arr, argc - 1);
