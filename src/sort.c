@@ -70,10 +70,9 @@ void	rotate_many(t_cstack *cs, int offset, char *stack_name)
 	i = 0;
 	if (offset > 0)
 	{
-		while (i < offset)
+		while (i++ < offset)
 		{
 			cs->stack = cs->stack->next;
-			i++;
 			if (*stack_name == 'b')
 				ft_putstr("rb\n");
 			else
@@ -82,10 +81,9 @@ void	rotate_many(t_cstack *cs, int offset, char *stack_name)
 	}
 	else
 	{
-		while (i < -offset)
+		while (i++ < -offset)
 		{
 			cs->stack = cs->stack->prev;
-			i++;
 			if (*stack_name == 'b')
 				ft_putstr("rrb\n");
 			else
