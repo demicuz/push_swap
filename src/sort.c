@@ -62,7 +62,7 @@ int	find_elem(t_dlist *stack, int elem)
 		return (-j);
 }
 
-// Three write() calls. Ridiculous
+// 25 loc per function - done. Sigh.
 void	rotate_many(t_cstack *cs, int offset, char *stack_name)
 {
 	int	i;
