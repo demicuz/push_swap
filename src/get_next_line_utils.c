@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-
 #include <get_next_line.h>
 
 // Copies a string, returns a pointer to the end of the result

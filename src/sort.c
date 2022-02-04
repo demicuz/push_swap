@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <push_swap.h>
 
 static int	get_window(int n)
@@ -36,7 +35,7 @@ static int	get_window(int n)
 		return (5);
 }
 
-static int	find_elem(t_dlist *stack, int elem)
+int	find_elem(t_dlist *stack, int elem)
 {
 	int		i;
 	int		j;
@@ -103,7 +102,7 @@ static void	seek_and_push_all(t_state *s)
 // s->a->stack->data is the first element in stack 'a'. And initially it's
 // filled with INDICES of values. So when we compare it with s->b->size it
 // magically works.
-void	sort_and_print(t_state *s)
+void	sort_and_print_big(t_state *s)
 {
 	int	window;
 

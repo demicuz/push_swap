@@ -60,13 +60,15 @@ void	rb(t_state *s);
 void	rr(t_state *s);
 
 // sort
-void	sort_and_print(t_state *s);
+void	sort_and_print_big(t_state *s);
+int		find_elem(t_dlist *stack, int elem);
 
 // stack
 void	push(t_cstack *cs, t_dlist *elem);
 void	push_front(t_cstack *cs, t_dlist *elem);
 t_dlist	*pop(t_cstack *cs);
 void	swap(t_cstack *cs);
+int		is_sorted_cstack(t_cstack *cs);
 
 // utils
 void	mem_error(void);

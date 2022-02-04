@@ -10,28 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <push_swap.h>
 #include <get_next_line.h>
 #include <unistd.h>
-
-int	is_sorted_cstack(t_cstack *cs)
-{
-	t_dlist	*p;
-	t_dlist	*last;
-
-	if (cs->size < 2)
-		return (1);
-	p = cs->stack;
-	last = cs->stack->prev;
-	while (p != last)
-	{
-		if (p->data > p->next->data)
-			return (0);
-		p = p->next;
-	}
-	return (1);
-}
 
 int	do_op_2(t_state *s, char *line)
 {
