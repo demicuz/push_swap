@@ -24,7 +24,7 @@ OBJ			:= $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 CC			:= cc
 CPPFLAGS	:= -I include -I $(LIBFT_DIR) -MMD -MP
-CFLAGS		:= #-Wall -Werror -Wextra -O1
+CFLAGS		:= -Wall -Werror -Wextra -O1
 LDFLAGS		:= -L $(LIB_DIR)
 LDLIBS		:= -lft
 
