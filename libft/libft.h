@@ -74,5 +74,6 @@ void	ft_putchar(char c);
 void	ft_putstr(const char *str);
 void	ft_putnbr(int nb);
 int		ft_strcmp(const char *s1, const char *s2);
+void	*ft_memcpy_int(void *dest, const void *src, size_t n);
 
 #endif

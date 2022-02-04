@@ -10,25 +10,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <push_swap.h>
-#include <unistd.h>
 
-int	main(int argc, const char *argv[])
+void	pa(t_state *s)
 {
-	t_state	s;
+	push(s->a, pop(s->b));
+	ft_putstr("pa\n");
+}
 
-	if (argc == 1)
-		return (0);
-	init_state(&s, argc);
-	if (!check_and_fill(s.arr, argc - 1, &argv[1]))
-	{
-		ft_putstr("Error\n");
-		exit(EXIT_FAILURE);
-	}
-	else if (is_sorted_array(s.arr, argc - 1))
-		exit(EXIT_SUCCESS);
-	fill_stack(s.a, s.arr, argc - 1);
-	sort_and_print(&s);
-	exit(EXIT_SUCCESS);
+void	pb(t_state *s)
+{
+	push(s->b, pop(s->a));
+	ft_putstr("pb\n");
+}
+
+void	ra(t_state *s)
+{
+	s->a->stack = s->a->stack->next;
+	ft_putstr("ra\n");
+}
+
+void	rb(t_state *s)
+{
+	s->b->stack = s->b->stack->next;
+	ft_putstr("rb\n");
+}
+
+void	rr(t_state *s)
+{
+	s->a->stack = s->a->stack->next;
+	s->b->stack = s->b->stack->next;
+	ft_putstr("rr\n");
 }

@@ -10,25 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <push_swap.h>
-#include <unistd.h>
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int	main(int argc, const char *argv[])
+# include <stdlib.h>
+# include <libft.h>
+
+typedef struct s_fd_list
 {
-	t_state	s;
+	int					fd;
+	char				*buffer;
+	char				*b_pos;
+	char				*word_start;
+	struct s_fd_list	*next;
+}	t_fd_list;
 
-	if (argc == 1)
-		return (0);
-	init_state(&s, argc);
-	if (!check_and_fill(s.arr, argc - 1, &argv[1]))
-	{
-		ft_putstr("Error\n");
-		exit(EXIT_FAILURE);
-	}
-	else if (is_sorted_array(s.arr, argc - 1))
-		exit(EXIT_SUCCESS);
-	fill_stack(s.a, s.arr, argc - 1);
-	sort_and_print(&s);
-	exit(EXIT_SUCCESS);
-}
+char	*get_next_line(int fd);
+
+char	*ft_strput(char *dest, char *src, char *str_end);
+int		ft_lst_add(t_list **lst, char *word_start, char *word_end);
+char	*ft_consume(t_fd_list *s, size_t *line_len);
+char	*ft_join(t_list *lst, char *line_start, char *line_end, size_t len);
+
+#endif

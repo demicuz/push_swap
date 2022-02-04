@@ -9,8 +9,14 @@
 	"build_systems":
 	[
 		{
-			"name": "Run with 1 2 3 4",
-			"shell_cmd": "make push_swap && ./push_swap 1 2 3 4"
+			"working_dir": "$project_path",
+			"name": "Run push_swap",
+			"shell_cmd": "make push_swap && ./push_swap 10 9 8 7 6"
+		},
+		{
+			"working_dir": "$project_path",
+			"name": "Run checker",
+			"shell_cmd": "make bonus && ./checker 10 9 8 7 6"
 		}
 	]
 }

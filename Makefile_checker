@@ -1,4 +1,4 @@
-NAME		:= push_swap
+NAME		:= checker
 
 SRC_DIR		:= src
 OBJ_DIR		:= obj
@@ -8,14 +8,12 @@ LIBFT_DIR	:= libft
 
 LIBFT		:= $(LIB_DIR)/libft.a
 
-SRC_FILES	:= main.c \
+SRC_FILES	:= checker.c \
                doubly_linked_list.c \
                init.c \
                array.c \
                utils.c \
-               sort.c \
                stack.c \
-               operations.c \
                get_next_line.c \
                get_next_line_utils.c
 
@@ -28,12 +26,9 @@ CFLAGS		:= -Wall -Werror -Wextra -O1
 LDFLAGS		:= -L $(LIB_DIR)
 LDLIBS		:= -lft
 
-.PHONY:	all bonus clean fclean re
+.PHONY:	all clean fclean re
 
 all: $(NAME)
-
-bonus:
-	$(MAKE) --file=Makefile_checker
 
 $(LIBFT): $(LIB_DIR)
 	$(MAKE) --directory=$(LIBFT_DIR)

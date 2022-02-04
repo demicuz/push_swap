@@ -10,25 +10,45 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <push_swap.h>
-#include <unistd.h>
 
-int	main(int argc, const char *argv[])
+t_dlist	*ft_dlstnew_int(int data)
 {
-	t_state	s;
+	t_dlist	*foo;
 
-	if (argc == 1)
-		return (0);
-	init_state(&s, argc);
-	if (!check_and_fill(s.arr, argc - 1, &argv[1]))
+	foo = malloc(sizeof(t_dlist));
+	if (!foo)
+		return (NULL);
+	foo->data = data;
+	foo->prev = NULL;
+	foo->next = NULL;
+	return (foo);
+}
+
+void	ft_dlstadd_front(t_dlist **lst, t_dlist *new)
+{
+	if (!lst || !new)
+		return ;
+	new->next = *lst;
+	if (*lst)
+		(*lst)->prev = new;
+	*lst = new;
+}
+
+void	ft_dlstadd_back(t_dlist **lst, t_dlist *new)
+{
+	t_dlist	*p;
+
+	if (!new || !lst)
+		return ;
+	if (!*lst)
 	{
-		ft_putstr("Error\n");
-		exit(EXIT_FAILURE);
+		*lst = new;
+		return ;
 	}
-	else if (is_sorted_array(s.arr, argc - 1))
-		exit(EXIT_SUCCESS);
-	fill_stack(s.a, s.arr, argc - 1);
-	sort_and_print(&s);
-	exit(EXIT_SUCCESS);
+	p = *lst;
+	while (p->next)
+		p = p->next;
+	p->next = new;
+	new->prev = p;
 }

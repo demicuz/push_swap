@@ -3,7 +3,10 @@
 /.cache
 *.o
 *.a
+*.py
 compile_commands.json
 *.sublime-workspace
 save.sh
 push_swap
+checker_linux
+checker

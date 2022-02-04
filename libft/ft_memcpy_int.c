@@ -10,25 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <push_swap.h>
-#include <unistd.h>
+#include <stdlib.h>
 
-int	main(int argc, const char *argv[])
+void	*ft_memcpy_int(void *dest, const void *src, size_t n)
 {
-	t_state	s;
+	unsigned int	*d;
+	unsigned int	*s;
 
-	if (argc == 1)
-		return (0);
-	init_state(&s, argc);
-	if (!check_and_fill(s.arr, argc - 1, &argv[1]))
+	if (!dest && !src)
+		return (NULL);
+	else if (dest != src)
 	{
-		ft_putstr("Error\n");
-		exit(EXIT_FAILURE);
+		d = dest;
+		s = (unsigned int *)src;
+		while (n)
+		{
+			*d = *s;
+			d++;
+			s++;
+			n -= 4;
+		}
 	}
-	else if (is_sorted_array(s.arr, argc - 1))
-		exit(EXIT_SUCCESS);
-	fill_stack(s.a, s.arr, argc - 1);
-	sort_and_print(&s);
-	exit(EXIT_SUCCESS);
+	return (dest);
 }
