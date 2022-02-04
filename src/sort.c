@@ -61,7 +61,8 @@ int	find_elem(t_dlist *stack, int elem)
 		return (-j);
 }
 
-static void	rotate_b(t_state *s, int offset)
+// Three write() calls. Ridiculous
+void	rotate_many(t_cstack *cs, int offset, char *stack_name)
 {
 	int	i;
 
@@ -70,18 +71,22 @@ static void	rotate_b(t_state *s, int offset)
 	{
 		while (i < offset)
 		{
-			s->b->stack = s->b->stack->next;
+			cs->stack = cs->stack->next;
 			i++;
-			ft_putstr("rb\n");
+			ft_putstr("r");
+			ft_putstr(stack_name);
+			ft_putstr("\n");
 		}
 	}
-	else if (offset < 0)
+	else
 	{
 		while (i < -offset)
 		{
-			s->b->stack = s->b->stack->prev;
+			cs->stack = cs->stack->prev;
 			i++;
-			ft_putstr("rrb\n");
+			ft_putstr("rr");
+			ft_putstr(stack_name);
+			ft_putstr("\n");
 		}
 	}
 }
@@ -93,7 +98,7 @@ static void	seek_and_push_all(t_state *s)
 	while (s->b->size > 0)
 	{
 		offset = find_elem(s->b->stack, s->b->size - 1);
-		rotate_b(s, offset);
+		rotate_many(s->b, offset, "b");
 		pa(s);
 	}
 }

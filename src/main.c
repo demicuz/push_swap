@@ -28,12 +28,12 @@ void	sort_and_print_2(t_state *s)
 // Need to add total_size bc -1 % 3 is -1, not 2
 void	sort_and_print_3(t_state *s)
 {
-	t_dlist	*first;
-	int		total_size;
+	int	first;
+	int	second;
 
-	first = s->a->stack;
-	total_size = s->a->size + s->b->size;
-	if (first->data != (first->next->data - 1 + total_size) % total_size)
+	first = s->a->stack->data;
+	second = s->a->stack->next->data;
+	if (first + 1 != second && first - 2 != second)
 	{
 		swap(s->a);
 		ft_putstr("sa\n");
@@ -50,10 +50,23 @@ void	sort_and_print_3(t_state *s)
 	}
 }
 
-// void	sort_and_print_5(t_state *s)
-// {
-	
-// }
+void	sort_and_print_5(t_state *s)
+{
+	int	offset;
+
+	offset = find_elem(s->a->stack, 0);
+	rotate_many(s->a, offset, "a");
+	pb(s);
+	if (s->a->size == 4)
+	{
+		offset = find_elem(s->a->stack, 1);
+		rotate_many(s->a, offset, "a");
+		pb(s);
+	}
+	sort_and_print_3(s);
+	while (s->b->size != 0)
+		pa(s);
+}
 
 void	sort_and_print(t_state *s)
 {
@@ -61,10 +74,11 @@ void	sort_and_print(t_state *s)
 		sort_and_print_2(s);
 	else if (s->a->size == 3)
 		sort_and_print_3(s);
+	else if (s->a->size <= 5)
+		sort_and_print_5(s);
 	else
 		sort_and_print_big(s);
 }
-
 
 int	main(int argc, const char *argv[])
 {

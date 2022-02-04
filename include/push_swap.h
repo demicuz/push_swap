@@ -62,6 +62,7 @@ void	rr(t_state *s);
 // sort
 void	sort_and_print_big(t_state *s);
 int		find_elem(t_dlist *stack, int elem);
+void	rotate_many(t_cstack *cs, int offset, char *stack_name);
 
 // stack
 void	push(t_cstack *cs, t_dlist *elem);
