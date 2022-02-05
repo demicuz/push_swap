@@ -73,7 +73,6 @@ void	check_ops(t_state *s)
 		if (!do_op(s, line))
 		{
 			ft_putstr("Error\n");
-			ft_putstr(line);
 			free(line);
 			return ;
 		}
