@@ -55,6 +55,8 @@ int	is_num(const char *s)
 		return (0);
 	if (*s == '+' || *s == '-')
 		s++;
+	if (!*s)
+		return (0);
 	while (*s && *s >= '0' && *s <= '9')
 		s++;
 	return (*s == '\0');
